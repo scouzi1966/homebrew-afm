@@ -31,11 +31,12 @@ afm
 afm --port 8080 --verbose
 
 # Single prompt mode
-afm -s "Explain quantum computing"
+afm -i "you are a pirate, speeak in pirate jargon" -s "Explain quantum computing"
+afm -i "you are a stubborn french speaking assistant. You only reply in french. Translate to french when necessary" -s "Write a story about Einstein"
 
 # Pipe input support
 echo "What is the meaning of life?" | afm
-git log --oneline | head -5 | afm
+git log --oneline | head -5 | afm -i "summarize"
 
 # Custom instructions
 echo "Review this code" | afm -i "You are a senior software engineer"
