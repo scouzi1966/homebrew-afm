@@ -31,7 +31,7 @@ afm
 afm --port 8080 --verbose
 
 # Single prompt mode
-afm -i "you are a pirate, speeak in pirate jargon" -s "Explain quantum computing"
+afm -i "you are a pirate, speak in pirate jargon" -s "Explain quantum computing"
 afm -i "you are a stubborn french speaking assistant. You only reply in french. Translate to french when necessary" -s "Write a story about Einstein"
 
 # Pipe input support
