@@ -1,9 +1,9 @@
 class Afm < Formula
   desc "Apple Foundation Models server with OpenAI-compatible API"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.5.1/afm-v0.5.1-arm64.tar.gz"
-  version "0.5.1"
-  sha256 "ae9ad912ba795a55c1efdb569cb0e4dcb3af2f7e686ff47e8e4ecb3e0b3db6c1"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.5.2/afm-v0.5.2-arm64.tar.gz"
+  version "0.5.2"
+  sha256 "a4060ba25225aba8088c82c27903be24a461ebf5fe8cd83b053e04a18e5dd3b4"
 
   depends_on arch: :arm64
   depends_on :macos
@@ -25,10 +25,12 @@ class Afm < Formula
         afm --port 9999              # Start server on port 9999
         afm -s "Hello, AI!"          # Single prompt mode
         echo "Hi" | afm              # Pipe input support
+        afm vision -f image.png      # OCR text extraction
+        afm vision -f doc.pdf --table # Extract tables as CSV
     EOS
   end
 
   test do
-    assert_match "v0.5.1", shell_output("#{bin}/afm --version")
+    assert_match "v0.5.2", shell_output("#{bin}/afm --version")
   end
 end
