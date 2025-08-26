@@ -1,9 +1,9 @@
 class Afm < Formula
   desc "Apple Foundation Models server with OpenAI-compatible API"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.5.4/afm-v0.5.4-arm64.tar.gz"
-  version "0.5.4"
-  sha256 "475dbc7f503616446a63209d52bbce9a1c176f6ed765b2694b3e270d13c333b0"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.5.5/afm-v0.5.5-arm64.tar.gz"
+  version "0.5.5"
+  sha256 "fd020aaefc8569fdbc842229977c2a4c63de1fd1640da99ca620ada724ad1d73"
 
   depends_on arch: :arm64
   depends_on :macos
@@ -32,6 +32,6 @@ class Afm < Formula
   end
 
   test do
-    assert_match "v0.5.4", shell_output("#{bin}/afm --version")
+    assert_match "v0.5.5", shell_output("#{bin}/afm --version")
   end
 end
