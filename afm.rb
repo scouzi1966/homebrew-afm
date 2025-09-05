@@ -1,15 +1,18 @@
 class Afm < Formula
   desc "Apple Foundation Models server with OpenAI-compatible API"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.5.5/afm-v0.5.5-arm64.tar.gz"
-  version "0.5.5"
-  sha256 "fd020aaefc8569fdbc842229977c2a4c63de1fd1640da99ca620ada724ad1d73"
+  url "https://api.github.com/repos/scouzi1966/maclocal-api/tarball/v0.5.6"
+  version "0.5.6"
+  sha256 "fce40500784973f78c57593b26b7316701d1e3be44440e9b2c4128429cb153aa"
 
   depends_on arch: :arm64
   depends_on :macos
 
   def install
-    bin.install "afm"
+    # GitHub tarball extracts to a directory like scouzi1966-maclocal-api-<hash>
+    # Build the binary from source
+    system "swift", "build", "-c", "release"
+    bin.install ".build/release/afm"
   end
 
   def caveats
@@ -22,7 +25,8 @@ class Afm < Formula
 
       Usage:
         afm --help                    # Show help
-        afm --port 9999              # Start server on port 9999
+        afm --port 9999              # Start server on port 9999 (localhost)
+        afm --hostname 0.0.0.0       # Allow external connections
         afm -s "Hello, AI!"          # Single prompt mode
         echo "Hi" | afm              # Pipe input support
         afm -a "model.fmadapter" -s "Hi" # LoRA adapter support
@@ -32,6 +36,6 @@ class Afm < Formula
   end
 
   test do
-    assert_match "v0.5.5", shell_output("#{bin}/afm --version")
+    assert_match "v0.5.6", shell_output("#{bin}/afm --version")
   end
 end
