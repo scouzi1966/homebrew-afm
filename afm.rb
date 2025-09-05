@@ -1,18 +1,15 @@
 class Afm < Formula
   desc "Apple Foundation Models server with OpenAI-compatible API"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://api.github.com/repos/scouzi1966/maclocal-api/tarball/v0.5.6"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.5.6/afm-v0.5.6-arm64.tar.gz"
   version "0.5.6"
-  sha256 "fce40500784973f78c57593b26b7316701d1e3be44440e9b2c4128429cb153aa"
+  sha256 "6d262457780452857cd506b5d02f3306121514f533ebc03913fdf0ded7302ccc"
 
   depends_on arch: :arm64
   depends_on :macos
 
   def install
-    # GitHub tarball extracts to a directory like scouzi1966-maclocal-api-<hash>
-    # Build the binary from source
-    system "swift", "build", "-c", "release"
-    bin.install ".build/release/afm"
+    bin.install "afm"
   end
 
   def caveats
