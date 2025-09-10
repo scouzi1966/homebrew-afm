@@ -2,7 +2,7 @@
 
 This is a Homebrew tap for [AFM (Apple Foundation Models API)](https://github.com/scouzi1966/maclocal-api), a macOS server that exposes Apple's Foundation Models through OpenAI-compatible API endpoints.
 
-## Latest: v0.5.5 - Security Enhancement: Localhost-Only Binding
+## Latest: v0.5.6 - Security Enhancement: Localhost-Only Binding
 
 - **🔒 Localhost-Only Binding**: Server now binds exclusively to localhost (127.0.0.1) for enhanced security
 - **🛡️ Network Isolation**: Prevents external network access to the AFM server  
