@@ -1,15 +1,19 @@
 class Afm < Formula
   desc "Apple Foundation Models server with OpenAI-compatible API and advanced sampling"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.8.0/afm-v0.8.0-arm64.tar.gz"
-  version "0.8.0"
-  sha256 "21173a1eb1163f2dc9b2eacb1bcde407310a3c4d5e684c173e4cfea63e5c1592"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.0/afm-v0.9.0-arm64.tar.gz"
+  version "0.9.0"
+  sha256 "8331c2c02b0c38cc755ead34047bf07958c792b33fda36c8b751323ab1ae14be"
 
   depends_on arch: :arm64
   depends_on :macos
 
   def install
     bin.install "afm"
+    # Install webui resources if present
+    if File.exist?("share/afm/webui/index.html.gz")
+      (share/"afm/webui").install "share/afm/webui/index.html.gz"
+    end
   end
 
   def caveats
@@ -23,10 +27,15 @@ class Afm < Formula
       Usage:
         afm --help                              # Show help
         afm --port 9999                         # Start server on port 9999 (localhost)
+        afm -w                                  # Start with WebUI (opens browser)
         afm --hostname 0.0.0.0                  # Allow external connections
         afm -s "Hello, AI!"                     # Single prompt mode
         echo "Hi" | afm                         # Pipe input support
         afm -a "model.fmadapter" -s "Hi"        # LoRA adapter support
+
+      WebUI (v0.9.0+):
+        afm -w                                  # Start server with WebUI
+        afm --webui --port 8080                 # WebUI on custom port
 
       Enhanced Randomness Parameters (v0.7.0+):
         afm -r "random:top-p=0.9" -s "Story"   # Nucleus sampling
@@ -41,6 +50,6 @@ class Afm < Formula
   end
 
   test do
-    assert_match "v0.8.0", shell_output("#{bin}/afm --version")
+    assert_match "v0.9.0", shell_output("#{bin}/afm --version")
   end
 end
