@@ -14,7 +14,7 @@ brew tap scouzi1966/afm
 brew install afm
 
 # Install Vesta (macOS app)
-brew install --cask vesta
+brew install --cask vesta-mac
 ```
 
 ---

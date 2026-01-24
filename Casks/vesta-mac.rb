@@ -1,4 +1,4 @@
-cask "vesta" do
+cask "vesta-mac" do
   version "0.9.0"
   sha256 "77ce53ddda39a6f2598a11d980537fbbb03823f53a0dfacbe4ee67074dda717d"
 
