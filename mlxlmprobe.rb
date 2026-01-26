@@ -1,8 +1,8 @@
 class Mlxlmprobe < Formula
   desc "Visual probing and interpretability tool for MLX language models"
   homepage "https://github.com/scouzi1966/MLXLMProbe"
-  url "https://files.pythonhosted.org/packages/b8/6e/3655162eddaf663701afbd3f39b1067b8be521e7d6f7b29bca9cb22739f5/mlxlmprobe-0.1.0.tar.gz"
-  sha256 "dc44dd8d4fdaca2ac1aa87fe74894cc42323d66fbbb737349176d94068d831a9"
+  url "https://files.pythonhosted.org/packages/37/89/c7244a522292442ea21929a8834768ec078281f7662d7fc408a0fc76a1f9/mlxlmprobe-0.1.1.tar.gz"
+  sha256 "c448d5b3e87682205718119e6c84a029ee4690f3f7c842ab36381f8ac5232d2e"
   license "MIT"
 
   depends_on arch: :arm64
@@ -14,7 +14,7 @@ class Mlxlmprobe < Formula
     system python3, "-m", "venv", libexec
     system libexec/"bin/python", "-m", "ensurepip", "--upgrade"
     system libexec/"bin/pip", "install", "--upgrade", "pip"
-    system libexec/"bin/pip", "install", "mlxlmprobe==0.1.0"
+    system libexec/"bin/pip", "install", "mlxlmprobe==0.1.1"
     (bin/"mlxlmprobe").write_env_script libexec/"bin/mlxlmprobe", PATH: "#{libexec}/bin:$PATH"
   end
 
