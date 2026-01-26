@@ -12,7 +12,9 @@ class Mlxlmprobe < Formula
   depends_on "python@3.12"
 
   def install
-    virtualenv_install_with_resources
+    virtualenv_create(libexec, "python3.12")
+    system libexec/"bin/pip", "install", "mlxlmprobe==0.1.0"
+    bin.install_symlink libexec/"bin/mlxlmprobe"
   end
 
   def caveats
