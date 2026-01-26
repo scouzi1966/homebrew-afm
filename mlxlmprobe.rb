@@ -12,8 +12,9 @@ class Mlxlmprobe < Formula
   depends_on "python@3.12"
 
   def install
-    virtualenv_create(libexec, "python3.12")
-    system libexec/"bin/pip", "install", "mlxlmprobe==0.1.0"
+    # Create virtualenv with pip included
+    venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
+    venv.pip_install "mlxlmprobe==0.1.0"
     (bin/"mlxlmprobe").write_env_script libexec/"bin/mlxlmprobe", PATH: "#{libexec}/bin:$PATH"
   end
 
