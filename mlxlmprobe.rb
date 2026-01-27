@@ -3,8 +3,8 @@ class Mlxlmprobe < Formula
 
   desc "Visual probing and interpretability tool for MLX language models"
   homepage "https://github.com/scouzi1966/MLXLMProbe"
-  url "https://files.pythonhosted.org/packages/e9/b4/493925e0932ebe91498465eaf148f4a843e9926d7af5a5266154b715d38a/mlxlmprobe-0.1.4.tar.gz"
-  sha256 "c1427f0d00143deaa43af8266308bedd074a0970257a1c968fc44f3ea739a1e3"
+  url "https://files.pythonhosted.org/packages/8c/eb/be88eed75a0fa2a49b9ca423376d8ad41d80a0fbd64df7b4f8d4e9082ce4/mlxlmprobe-0.1.5.tar.gz"
+  sha256 "037a2ff57c59d8e7eed74f03e30163a6b6a88b32302fc66878be32e522a462b5"
   license "MIT"
 
   depends_on arch: :arm64
