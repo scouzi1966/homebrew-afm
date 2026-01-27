@@ -1,8 +1,10 @@
 class Mlxlmprobe < Formula
+  include Language::Python::Virtualenv
+
   desc "Visual probing and interpretability tool for MLX language models"
   homepage "https://github.com/scouzi1966/MLXLMProbe"
-  url "https://files.pythonhosted.org/packages/5c/15/9061766150faf70681f9bd6ae0955d7f904147db0bf2c4be908789aabe62/mlxlmprobe-0.1.2.tar.gz"
-  sha256 "aca8737ea8a1e76e466d0f06a99fb30336c04aa4ddc3552d700ec31561e83056"
+  url "https://files.pythonhosted.org/packages/e9/b4/493925e0932ebe91498465eaf148f4a843e9926d7af5a5266154b715d38a/mlxlmprobe-0.1.4.tar.gz"
+  sha256 "c1427f0d00143deaa43af8266308bedd074a0970257a1c968fc44f3ea739a1e3"
   license "MIT"
 
   depends_on arch: :arm64
@@ -10,12 +12,7 @@ class Mlxlmprobe < Formula
   depends_on "python@3.12"
 
   def install
-    python3 = Formula["python@3.12"].opt_bin/"python3.12"
-    system python3, "-m", "venv", libexec
-    system libexec/"bin/python", "-m", "ensurepip", "--upgrade"
-    system libexec/"bin/pip", "install", "--upgrade", "pip"
-    system libexec/"bin/pip", "install", "mlxlmprobe==0.1.2"
-    (bin/"mlxlmprobe").write_env_script libexec/"bin/mlxlmprobe", PATH: "#{libexec}/bin:$PATH"
+    virtualenv_install_with_resources
   end
 
   def caveats
@@ -24,10 +21,19 @@ class Mlxlmprobe < Formula
 
       Usage:
         mlxlmprobe                              # Launch Streamlit UI in browser
+        mlxlmprobe --help                       # Show Streamlit help
+
+      The tool provides:
+        - Attention pattern analysis
+        - MoE expert routing visualization
+        - Token probability analysis
+        - RoPE position encoding visualization
+        - Residual stream analysis
+        - PDF report export
     EOS
   end
 
   test do
-    assert_match "streamlit", shell_output("#{bin}/mlxlmprobe --help 2>&1")
+    assert_match "mlxlmprobe", shell_output("#{bin}/mlxlmprobe --help 2>&1", 0)
   end
 end
