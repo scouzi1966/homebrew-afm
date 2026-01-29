@@ -1,9 +1,9 @@
 class Afm < Formula
   desc "Apple Foundation Models server with OpenAI-compatible API and advanced sampling"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.1/afm-v0.9.1-arm64.tar.gz"
-  version "0.9.1"
-  sha256 "901f54fce9b738539486c64c94aaa6ee56ab8143179c7b4d892b91026df94c68"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.2/afm-v0.9.2-arm64.tar.gz"
+  version "0.9.2"
+  sha256 "cef3773683052a4486e0b39efe2fef602dd030cfc0a790e57211578bd8e2f5e2"
 
   depends_on arch: :arm64
   depends_on :macos
@@ -33,8 +33,9 @@ class Afm < Formula
         echo "Hi" | afm                         # Pipe input support
         afm -a "model.fmadapter" -s "Hi"        # LoRA adapter support
 
-      WebUI (v0.9.0+):
-        afm -w                                  # Start server with WebUI
+      WebUI + Gateway (v0.9.2+):
+        afm -w                                  # Start with WebUI
+        afm -w -g                               # WebUI + API gateway (auto-discovers backends)
         afm --webui --port 8080                 # WebUI on custom port
 
       Enhanced Randomness Parameters (v0.7.0+):
@@ -50,6 +51,6 @@ class Afm < Formula
   end
 
   test do
-    assert_match "v0.9.1", shell_output("#{bin}/afm --version")
+    assert_match "v0.9.2", shell_output("#{bin}/afm --version")
   end
 end
