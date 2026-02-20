@@ -1,9 +1,9 @@
 class Afm < Formula
-  desc "Apple Foundation Models server with OpenAI-compatible API and advanced sampling"
+  desc "Apple Foundation Models + MLX local models — OpenAI-compatible API, WebUI, all Swift"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.3/afm-v0.9.3-arm64.tar.gz"
-  version "0.9.3"
-  sha256 "40959f35f9d237e2571a54b2d55aa1ea834a7a1faaad594b1ea9b9624bdd226c"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.4/afm-v0.9.4-arm64.tar.gz"
+  version "0.9.4"
+  sha256 "3fadcde2d671fbc6b0a8e92e01a205f1f01d36d24f91f1bbca86c1ecb4ff41af"
 
   depends_on arch: :arm64
   depends_on :macos
@@ -11,8 +11,8 @@ class Afm < Formula
   def install
     bin.install "afm"
     # Install webui resources if present
-    if File.exist?("share/afm/webui/index.html.gz")
-      (share/"afm/webui").install "share/afm/webui/index.html.gz"
+    if File.exist?("Resources/webui/index.html.gz")
+      (share/"afm/webui").install "Resources/webui/index.html.gz"
     end
   end
 
@@ -25,32 +25,22 @@ class Afm < Formula
       Enable Apple Intelligence in System Settings → Apple Intelligence & Siri
 
       Usage:
-        afm --help                              # Show help
-        afm --port 9999                         # Start server on port 9999 (localhost)
-        afm -w                                  # Start with WebUI (opens browser)
-        afm --hostname 0.0.0.0                  # Allow external connections
+        afm -w                                  # WebUI with Apple Foundation Model
+        afm -w -g                               # WebUI + API gateway (discovers Ollama, LM Studio, etc.)
         afm -s "Hello, AI!"                     # Single prompt mode
-        echo "Hi" | afm                         # Pipe input support
-        afm -a "model.fmadapter" -s "Hi"        # LoRA adapter support
 
-      WebUI + Gateway (v0.9.3+):
-        afm -w                                  # Start with WebUI
-        afm -w -g                               # WebUI + API gateway (auto-discovers backends)
-        afm --webui --port 8080                 # WebUI on custom port
+      MLX Local Models (v0.9.4+):
+        afm mlx -m mlx-community/Qwen2.5-0.5B-Instruct-4bit -s "Hello"
+        afm mlx -m mlx-community/gemma-3-4b-it-8bit -w
+        afm mlx -w                              # Interactive model picker
 
-      Enhanced Randomness Parameters (v0.7.0+):
-        afm -r "random:top-p=0.9" -s "Story"   # Nucleus sampling
-        afm -r "random:top-k=50" -s "Story"    # Top-k sampling
-        afm -r "random:seed=42" -s "Story"     # Seeded random
-        afm -r "random:top-p=0.9:seed=42" -s "Story" # Combined mode
-
-      Permissive Guardrails (v0.8.0+):
-        afm -P -s "Analyze content"            # Enable permissive mode
-        afm --permissive-guardrails --port 9999 # Server with permissive mode
+      More:
+        afm --help                              # Full options
+        afm mlx --help                          # MLX options
     EOS
   end
 
   test do
-    assert_match "v0.9.3", shell_output("#{bin}/afm --version")
+    assert_match "v0.9.4", shell_output("#{bin}/afm --version")
   end
 end
