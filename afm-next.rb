@@ -1,9 +1,9 @@
 class AfmNext < Formula
   desc "AFM next — OpenAI-compatible local LLM API (development build)"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260224-2913362/afm-next-arm64.tar.gz"
-  version "0.9.5-next.2913362.20260224"
-  sha256 "acfbf60ac0b2c4891879cc024914e42584582d319471cadb44f40a26f007705e"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260224-7f4b7e7/afm-next-arm64.tar.gz"
+  version "0.9.5-next.7f4b7e7.20260224"
+  sha256 "63f3bad039d7aa1d104879101db1db6221e7f88573159716f00a2deaffaf3bf1"
 
   depends_on arch: :arm64
   depends_on :macos
