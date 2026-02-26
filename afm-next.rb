@@ -3,7 +3,7 @@ class AfmNext < Formula
   homepage "https://github.com/scouzi1966/maclocal-api"
   url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260226-cd2941e/afm-next-arm64.tar.gz"
   version "0.9.5-next.cd2941e.20260226"
-  sha256 "40ec49f4d725dd5237841c05c8259d8c7f96d0118dcee25df95dc7b8d60209eb"
+  sha256 "e0d9f7d3d98b791fd2122fb9289d8574ffd09e7182a33456d2666b4b382688aa"
 
   depends_on arch: :arm64
   depends_on :macos
