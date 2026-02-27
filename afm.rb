@@ -10,9 +10,24 @@ class Afm < Formula
 
   def install
     bin.install "afm"
+    # Install metallib resource bundle to libexec (brew won't symlink dirs from bin/)
+    if File.directory?("MacLocalAPI_MacLocalAPI.bundle")
+      (libexec/"MacLocalAPI_MacLocalAPI.bundle").install Dir["MacLocalAPI_MacLocalAPI.bundle/*"]
+    end
     # Install webui resources if present
     if File.exist?("Resources/webui/index.html.gz")
       (share/"afm/webui").install "Resources/webui/index.html.gz"
+    end
+  end
+
+  def post_install
+    # Swift's Bundle.module looks for the .bundle next to the binary.
+    # Brew symlinks bin/afm to /opt/homebrew/bin/afm but won't symlink dirs,
+    # so we create the symlink manually.
+    bundle_src = libexec/"MacLocalAPI_MacLocalAPI.bundle"
+    bundle_dst = HOMEBREW_PREFIX/"bin/MacLocalAPI_MacLocalAPI.bundle"
+    if bundle_src.exist? && !bundle_dst.exist?
+      bundle_dst.make_symlink(bundle_src)
     end
   end
 
