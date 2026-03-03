@@ -1,8 +1,8 @@
 cask "vesta-mac-next" do
-  version "0.9.6-next.8de93c3.20260227"
-  sha256 "7f749142e336de4a3b4961d2e23b4b1ef2396557f3b887a088c877b740bbf44e"
+  version "0.9.6-next.d050a1e.20260302"
+  sha256 "2979f5f654cf74c35bc92cc51071e15939afcf0a428ac4408e8e421962181553"
 
-  url "https://github.com/scouzi1966/vesta-mac-dist/releases/download/nightly-20260227-8de93c3/Vesta-next.dmg"
+  url "https://github.com/scouzi1966/vesta-mac-dist/releases/download/nightly-20260302-d050a1e/Vesta-next.dmg"
   name "Vesta Beta"
   desc "macOS AI chat app — development build (Apple Intelligence, MLX, llama.cpp)"
   homepage "https://github.com/scouzi1966/vesta-mac-dist"
