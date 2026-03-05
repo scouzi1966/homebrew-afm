@@ -10,8 +10,7 @@ class Afm < Formula
 
   def install
     bin.install "afm"
-    # Swift's Bundle.module resolves symlinks and looks next to the real binary
-    # in Cellar/.../bin/, so the .bundle must live there — not in libexec.
+    # Install the metallib resource bundle next to the binary in Cellar
     if File.directory?("MacLocalAPI_MacLocalAPI.bundle")
       (bin/"MacLocalAPI_MacLocalAPI.bundle").install Dir["MacLocalAPI_MacLocalAPI.bundle/*"]
     end
@@ -19,6 +18,16 @@ class Afm < Formula
     if File.exist?("Resources/webui/index.html.gz")
       (share/"afm/webui").install "Resources/webui/index.html.gz"
     end
+  end
+
+  def post_install
+    # Brew symlinks bin/afm into HOMEBREW_PREFIX/bin/ but won't auto-symlink
+    # directories. The binary looks for the .bundle next to itself (the symlink
+    # in HOMEBREW_PREFIX/bin/), so we must symlink the .bundle dir there too.
+    bundle_src = bin/"MacLocalAPI_MacLocalAPI.bundle"
+    bundle_dst = HOMEBREW_PREFIX/"bin/MacLocalAPI_MacLocalAPI.bundle"
+    bundle_dst.unlink if bundle_dst.symlink? || bundle_dst.exist?
+    bundle_dst.make_symlink(bundle_src) if bundle_src.exist?
   end
 
   def caveats
