@@ -28,9 +28,8 @@ class AfmNext < Formula
     # so we create the symlink manually.
     bundle_src = libexec/"MacLocalAPI_MacLocalAPI.bundle"
     bundle_dst = HOMEBREW_PREFIX/"bin/MacLocalAPI_MacLocalAPI.bundle"
-    if bundle_src.exist? && !bundle_dst.exist?
-      bundle_dst.make_symlink(bundle_src)
-    end
+    bundle_dst.unlink if bundle_dst.symlink? || bundle_dst.exist?
+    bundle_dst.make_symlink(bundle_src) if bundle_src.exist?
   end
 
   def caveats
