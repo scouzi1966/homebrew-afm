@@ -1,9 +1,9 @@
-class AfmAT080 < Formula
-  desc "Apple Foundation Models + MLX local models — OpenAI-compatible API, WebUI, all Swift (pinned v0.8.0)"
+class AfmAT0910 < Formula
+  desc "Apple Foundation Models + MLX local models — OpenAI-compatible API, WebUI, all Swift (pinned v0.9.10)"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.8.0/afm-v0.8.0-arm64.tar.gz"
-  version "0.8.0"
-  sha256 "21173a1eb1163f2dc9b2eacb1bcde407310a3c4d5e684c173e4cfea63e5c1592"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.10/afm-v0.9.10-arm64.tar.gz"
+  version "0.9.10"
+  sha256 "5c2a1d863b5195d480406ea1c8f5ba09d275d9be93e89ec9b451f189f0e647fc"
 
   depends_on arch: :arm64
   depends_on :macos
@@ -30,7 +30,7 @@ class AfmAT080 < Formula
 
   def caveats
     <<~EOS
-      This is a pinned historical release of afm (v0.8.0).
+      This is a pinned historical release of afm (v0.9.10).
       For the latest stable: brew install scouzi1966/afm/afm
       For the latest nightly: brew install scouzi1966/afm/afm-next
     EOS
