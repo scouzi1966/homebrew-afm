@@ -1,9 +1,9 @@
-class AfmNextAT097Next61ba01220260307 < Formula
-  desc "AFM next — OpenAI-compatible local LLM API (pinned nightly 20260307)"
+class AfmNextAT0912NextA589c5020260502 < Formula
+  desc "AFM next — OpenAI-compatible local LLM API (pinned nightly 20260502)"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260307-61ba012/afm-next-arm64.tar.gz"
-  version "0.9.7-next.61ba012.20260307"
-  sha256 "3ce6f929268952aea8c66389261c457dd2c47a4212ad2aaad996e64dd7fd9019"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260502-a589c50/afm-next-arm64.tar.gz"
+  version "0.9.12-next.a589c50.20260502"
+  sha256 "b168459048aace245c751d49c4dac629f8961addbe7118d7bc49dde0049422fa"
 
   depends_on arch: :arm64
   depends_on :macos
@@ -30,7 +30,7 @@ class AfmNextAT097Next61ba01220260307 < Formula
 
   def caveats
     <<~EOS
-      This is a pinned historical nightly (20260307).
+      This is a pinned historical nightly (20260502).
       For the latest nightly: brew install scouzi1966/afm/afm-next
       For the latest stable:  brew install scouzi1966/afm/afm
     EOS
