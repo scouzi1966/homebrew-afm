@@ -62,8 +62,9 @@ git log --oneline | head -5 | afm -i "summarize"
 
 ## Vesta - macOS AI Chat App
 
-### Latest: v0.9.0
+### Latest: v0.9.7
 
+- **Qwen 3.6 and Gemma 4 MLX support** aligned with maclocal-api
 - **Vision capabilities** with Qwen3-VL model (describe images, analyze screenshots)
 - **Continuity Camera** input (capture photos directly from iPhone/iPad)
 - **Code syntax highlighting** for 20+ programming languages
