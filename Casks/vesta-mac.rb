@@ -7,6 +7,11 @@ cask "vesta-mac" do
   desc "macOS AI chat app with Apple Intelligence, MLX, and llama.cpp backends"
   homepage "https://github.com/scouzi1966/vesta-mac-dist"
 
+  livecheck do
+    url :url
+    regex(%r{/download/v?(\d+(?:\.\d+)+)/Vesta[._-]v?\1\.dmg}i)
+  end
+
   depends_on macos: ">= :tahoe"
   depends_on arch: :arm64
 
