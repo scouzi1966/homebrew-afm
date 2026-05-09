@@ -1,6 +1,6 @@
 cask "vesta-mac" do
   version "0.9.7"
-  sha256 "363659eca367afb7a0d69f0fd1b48a1f6f18ba9742796b20b8b094151bf8fa05"
+  sha256 "ca806abe2d72254a0ca8cd9207fda8a89b2de03fd8427e6a5c39de9bdc23c137"
 
   url "https://github.com/scouzi1966/vesta-mac-dist/releases/download/v#{version}/Vesta-#{version}.dmg"
   name "Vesta"
