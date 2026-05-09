@@ -8,8 +8,8 @@ cask "vesta-mac" do
   homepage "https://github.com/scouzi1966/vesta-mac-dist"
 
   livecheck do
-    url :url
-    regex(%r{/download/v?(\d+(?:\.\d+)+)/Vesta[._-]v?\1\.dmg}i)
+    url "https://github.com/scouzi1966/vesta-mac-dist/releases"
+    regex(%r{href=.*?/releases/download/v?(\d+(?:\.\d+)+)/Vesta[._-]v?\1\.dmg}i)
   end
 
   depends_on macos: ">= :tahoe"
