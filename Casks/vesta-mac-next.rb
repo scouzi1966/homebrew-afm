@@ -4,13 +4,12 @@ cask "vesta-mac-next" do
 
   url "https://github.com/scouzi1966/vesta-mac-dist/releases/download/nightly-20260303-45b5cf0/Vesta-next.dmg"
   name "Vesta Beta"
-  desc "macOS AI chat app — development build (Apple Intelligence, MLX, llama.cpp)"
+  desc "AI chat app — development build (Apple Intelligence, MLX, llama.cpp)"
   homepage "https://github.com/scouzi1966/vesta-mac-dist"
 
-  depends_on macos: ">= :tahoe"
-  depends_on arch: :arm64
-
   conflicts_with cask: "vesta-mac"
+  depends_on macos: :tahoe
+  depends_on arch: :arm64
 
   app "Vesta.app"
 
