@@ -1,9 +1,9 @@
 class Afm < Formula
   desc "Apple Foundation Models + MLX local models — OpenAI-compatible API, WebUI, all Swift"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.12/afm-v0.9.12-arm64.tar.gz"
-  version "0.9.12"
-  sha256 "da52325429c89d9d8c743de4dc6454e9ed2327adf2fe166d34bbbbd9a44e8255"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.13/afm-v0.9.13-arm64.tar.gz"
+  version "0.9.13"
+  sha256 "443bf74650fece15f7ce02663f6d5dd14a7b638c937f80262e426903a6abf42b"
 
   depends_on arch: :arm64
   depends_on :macos
