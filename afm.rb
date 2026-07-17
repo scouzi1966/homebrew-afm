@@ -1,9 +1,9 @@
 class Afm < Formula
   desc "Apple Foundation Models + MLX local models — OpenAI-compatible API, WebUI, all Swift"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.13/afm-v0.9.13-arm64.tar.gz"
-  version "0.9.13"
-  sha256 "443bf74650fece15f7ce02663f6d5dd14a7b638c937f80262e426903a6abf42b"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.14/afm-v0.9.14-arm64.tar.gz"
+  version "0.9.14"
+  sha256 "e54558f52d7b1ba24904b4811c153a666f15e51b104746d59a9a51e961f66e6f"
 
   depends_on arch: :arm64
   depends_on :macos
@@ -43,7 +43,7 @@ class Afm < Formula
         afm -w -g                               # WebUI + API gateway (discovers Ollama, LM Studio, etc.)
         afm -s "Hello, AI!"                     # Single prompt mode
 
-      MLX Local Models (v0.9.12+):
+      MLX Local Models (v0.9.14+):
         afm mlx -m mlx-community/Qwen2.5-0.5B-Instruct-4bit -s "Hello"
         afm mlx -m mlx-community/gemma-3-4b-it-8bit -w
         afm mlx -w                              # Interactive model picker
@@ -55,6 +55,6 @@ class Afm < Formula
   end
 
   test do
-    assert_match "v0.9.12", shell_output("#{bin}/afm --version")
+    assert_match "v0.9.14", shell_output("#{bin}/afm --version")
   end
 end
