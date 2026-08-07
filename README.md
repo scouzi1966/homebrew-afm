@@ -13,9 +13,16 @@ brew tap scouzi1966/afm
 # Install AFM (CLI server)
 brew install afm
 
+# Install the explicitly qualified staging candidate
+brew install afm-staging
+
 # Install Vesta (macOS app)
 brew install --cask vesta-mac
 ```
+
+`afm-staging` is an immutable, manually qualified candidate. It is separate
+from the rolling `afm-next` nightly channel and conflicts with both `afm` and
+`afm-next` because all three provide the `afm` executable.
 
 ---
 
