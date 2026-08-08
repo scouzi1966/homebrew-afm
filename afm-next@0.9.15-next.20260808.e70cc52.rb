@@ -1,5 +1,5 @@
 class AfmNextAT0915Next20260808E70cc52 < Formula
-  desc "AFM next — OpenAI-compatible local LLM API (pinned nightly 20260808)"
+  desc "OpenAI-compatible local LLM API pinned nightly from 20260808"
   homepage "https://github.com/scouzi1966/maclocal-api"
   url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260808-e70cc52/afm-next-arm64.tar.gz"
   version "0.9.15-next.20260808.e70cc52"

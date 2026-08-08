@@ -1,5 +1,5 @@
 class AfmNext < Formula
-  desc "AFM next — OpenAI-compatible local LLM API (development build)"
+  desc "OpenAI-compatible local LLM API development build"
   homepage "https://github.com/scouzi1966/maclocal-api"
   url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260808-e70cc52/afm-next-arm64.tar.gz"
   version "0.9.15-next.20260808.e70cc52"

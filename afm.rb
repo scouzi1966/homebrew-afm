@@ -8,7 +8,7 @@ class Afm < Formula
   depends_on arch: :arm64
   depends_on :macos
 
-  conflicts_with "afm-staging", because: "both install an `afm` executable"
+  conflicts_with "afm-next", "afm-staging", because: "all install an `afm` executable"
 
   def install
     bin.install "afm"
