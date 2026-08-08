@@ -8,6 +8,8 @@ class Afm < Formula
   depends_on arch: :arm64
   depends_on :macos
 
+  conflicts_with "afm-staging", because: "both install an `afm` executable"
+
   def install
     bin.install "afm"
     # Install the metallib resource bundle next to the binary in Cellar
