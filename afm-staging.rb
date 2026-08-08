@@ -3,8 +3,8 @@ class AfmStaging < Formula
   homepage "https://github.com/scouzi1966/maclocal-api"
   url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-20260808-ff2dde5/afm-staging-arm64.tar.gz"
   version "0.9.15-staging.ff2dde5.20260808"
-  version_scheme 1
   sha256 "e42b8942bfaac182fb0a184d242ceb61405609d5b795cb29d8eb8adcbba3538f"
+  version_scheme 1
   license "MIT"
 
   depends_on arch: :arm64
