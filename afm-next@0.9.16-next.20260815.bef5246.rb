@@ -1,5 +1,5 @@
-class AfmNext < Formula
-  desc "OpenAI-compatible local LLM API development build"
+class AfmNextAT0916Next20260815Bef5246 < Formula
+  desc "OpenAI-compatible local LLM API pinned nightly from 20260815"
   homepage "https://github.com/scouzi1966/maclocal-api"
   url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260815-bef5246/afm-next-arm64.tar.gz"
   version "0.9.16-next.20260815.bef5246"
@@ -10,7 +10,7 @@ class AfmNext < Formula
   depends_on arch: :arm64
   depends_on macos: :tahoe
 
-  conflicts_with "afm", "afm-staging", because: "all three install an `afm` executable"
+  conflicts_with "afm", "afm-next", "afm-staging", because: "all install an `afm` executable"
 
   def install
     libexec.install "afm"
@@ -26,17 +26,9 @@ class AfmNext < Formula
 
   def caveats
     <<~EOS
-      afm-next is the development build of AFM, updated nightly from main.
-      For the stable release, use: brew install scouzi1966/afm/afm
-
-      AFM requires:
-      - macOS 26+ with Apple Intelligence enabled (for `afm` command)
-      - Apple Silicon Mac (M1/M2/M3/M4 series)
-
-      Usage:
-        afm mlx -m mlx-community/Qwen2.5-0.5B-Instruct-4bit -s "Hello"
-        afm mlx -w                              # Interactive model picker
-        afm --help                              # Full options
+      This is a pinned historical nightly (20260815).
+      For the latest nightly: brew install scouzi1966/afm/afm-next
+      For the latest stable:  brew install scouzi1966/afm/afm
     EOS
   end
 
