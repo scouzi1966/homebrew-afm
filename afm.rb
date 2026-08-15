@@ -50,5 +50,6 @@ class Afm < Formula
   test do
     assert_match "v#{version}", shell_output("#{bin}/afm --version")
     assert_match "mlx", shell_output("#{bin}/afm --help")
+    assert_path_exists share/"afm/webui/index.html.gz"
   end
 end
