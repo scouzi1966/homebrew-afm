@@ -1,9 +1,9 @@
 class AfmNext < Formula
   desc "OpenAI-compatible local LLM API development build"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260822-677ed01/afm-next-arm64.tar.gz"
-  version "0.9.18-next.20260822.677ed01"
-  sha256 "4a6ba3b3d3b703b3b48e95ab52422bb050ad2230e5a78ad03bfd9e1b9440701a"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260822-fdf29f6/afm-next-arm64.tar.gz"
+  version "0.9.18-next.20260822.fdf29f6"
+  sha256 "288dd0891ceda393a01966e10dbd5407304d394eae027c9a8e96891210e72510"
   license "MIT"
   version_scheme 1
 
@@ -14,6 +14,7 @@ class AfmNext < Formula
 
   def install
     libexec.install "afm"
+    libexec.install "MacLocalAPI_AFMKit.bundle"
     libexec.install "MacLocalAPI_AFMKitMLX.bundle"
     libexec.install "MacLocalAPI_AFMKitDwarfStar.bundle"
     (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v#{version}"
