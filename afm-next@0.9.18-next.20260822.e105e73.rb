@@ -1,9 +1,9 @@
-class AfmNextAT0915Next202608104950c0d < Formula
-  desc "OpenAI-compatible local LLM API pinned nightly from 20260810"
+class AfmNextAT0918Next20260822E105e73 < Formula
+  desc "OpenAI-compatible local LLM API pinned nightly from 20260822"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260810-4950c0d/afm-next-arm64.tar.gz"
-  version "0.9.15-next.20260810.4950c0d"
-  sha256 "210f157335a140e3cc1bd26e92a38a3af601969514b09c974107994faff40c19"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260822-e105e73/afm-next-arm64.tar.gz"
+  version "0.9.18-next.20260822.e105e73"
+  sha256 "b9581e00ca7ddbdff8e19898530d486b644844fc5d71ca91c8b140d5dabc5372"
   license "MIT"
   version_scheme 1
 
@@ -14,6 +14,7 @@ class AfmNextAT0915Next202608104950c0d < Formula
 
   def install
     libexec.install "afm"
+    libexec.install "MacLocalAPI_AFMKit.bundle"
     libexec.install "MacLocalAPI_AFMKitMLX.bundle"
     libexec.install "MacLocalAPI_AFMKitDwarfStar.bundle"
     (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v#{version}"
@@ -26,7 +27,7 @@ class AfmNextAT0915Next202608104950c0d < Formula
 
   def caveats
     <<~EOS
-      This is a pinned historical nightly (20260810).
+      This is a pinned historical nightly (20260822).
       For the latest nightly: brew install scouzi1966/afm/afm-next
       For the latest stable:  brew install scouzi1966/afm/afm
     EOS
@@ -35,5 +36,6 @@ class AfmNextAT0915Next202608104950c0d < Formula
   test do
     assert_match "v#{version}", shell_output("#{bin}/afm --version")
     assert_match "mlx", shell_output("#{bin}/afm --help")
+    assert_path_exists share/"afm/webui/index.html.gz"
   end
 end
