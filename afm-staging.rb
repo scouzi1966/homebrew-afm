@@ -3,7 +3,7 @@ class AfmStaging < Formula
   homepage "https://github.com/scouzi1966/maclocal-api"
   url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-20260829-1bde66c-beta/afm-staging-arm64.tar.gz"
   version "0.9.18-staging.1bde66c.20260829"
-  sha256 "041551c8675cda7d50e73b9f373532a1009b91cf7e0b9b4077c1b0c112ab42ed"
+  sha256 "94acdeaaa70a7d893f7dcd85412cd7abb6d58031c40ba94c226dc781bb8e2739"
   license "MIT"
   version_scheme 1
 
@@ -16,6 +16,7 @@ class AfmStaging < Formula
     # Keep the executable beside its SwiftPM resource bundles. The wrapper in
     # bin executes this binary without depending on global bundle symlinks.
     libexec.install "afm"
+    libexec.install "afm-qualified.tar.gz"
     libexec.install "MacLocalAPI_AFMEvaluationHost.bundle"
     libexec.install "AFMKit_AFMKitMLX.bundle"
     libexec.install "AFMKit_AFMKitDwarfStar.bundle"
@@ -23,6 +24,12 @@ class AfmStaging < Formula
 
     (share/"afm/webui").install "Resources/webui/index.html.gz"
     doc.install "README.md", "QUALIFICATION.md"
+  end
+
+  def post_install
+    # Homebrew normalizes Mach-O rpaths during installation. Restore the exact
+    # executable that passed qualification after Homebrew's relocation phase.
+    system "tar", "-xzf", libexec/"afm-qualified.tar.gz", "-C", libexec
   end
 
   def caveats
