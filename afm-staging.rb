@@ -1,9 +1,9 @@
 class AfmStaging < Formula
   desc "Qualified AFM staging build for Apple Silicon"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-20260808-ff2dde5/afm-staging-arm64.tar.gz"
-  version "0.9.15-staging.ff2dde5.20260808"
-  sha256 "e42b8942bfaac182fb0a184d242ceb61405609d5b795cb29d8eb8adcbba3538f"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-20260829-1bde66c-beta/afm-staging-arm64.tar.gz"
+  version "0.9.18-staging.1bde66c.20260829"
+  sha256 "041551c8675cda7d50e73b9f373532a1009b91cf7e0b9b4077c1b0c112ab42ed"
   license "MIT"
   version_scheme 1
 
@@ -16,8 +16,9 @@ class AfmStaging < Formula
     # Keep the executable beside its SwiftPM resource bundles. The wrapper in
     # bin executes this binary without depending on global bundle symlinks.
     libexec.install "afm"
-    libexec.install "MacLocalAPI_AFMKitMLX.bundle"
-    libexec.install "MacLocalAPI_AFMKitDwarfStar.bundle"
+    libexec.install "MacLocalAPI_AFMEvaluationHost.bundle"
+    libexec.install "AFMKit_AFMKitMLX.bundle"
+    libexec.install "AFMKit_AFMKitDwarfStar.bundle"
     (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v#{version}"
 
     (share/"afm/webui").install "Resources/webui/index.html.gz"
