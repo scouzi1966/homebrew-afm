@@ -1,9 +1,9 @@
 class AfmStaging < Formula
   desc "Qualified AFM staging build for Apple Silicon"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-20260903-7db9872-beta/afm-staging-arm64.tar.gz"
-  version "0.9.18-staging.7db9872.20260903"
-  sha256 "ff7061c1033147a43ee4ad15d0347faa1307889facd4bd4b5479f4f40aae84f3"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-20260903-160ec3f-beta/afm-staging-arm64.tar.gz"
+  version "0.9.18-staging.160ec3f.20260903"
+  sha256 "ec99bbb3a80a916f37e0c1e06b481f581dce797c25c2911e8ed64e04e59dd4a7"
   license "MIT"
   version_scheme 1
 
