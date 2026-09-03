@@ -1,9 +1,9 @@
 class AfmStaging < Formula
   desc "Qualified AFM staging build for Apple Silicon"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-20260903-160ec3f-beta/afm-staging-arm64.tar.gz"
-  version "0.9.18-staging.160ec3f.20260903"
-  sha256 "ec99bbb3a80a916f37e0c1e06b481f581dce797c25c2911e8ed64e04e59dd4a7"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-hotfix-20260903-b4ed164-beta/afm-staging-arm64.tar.gz"
+  version "0.9.18.1-staging.b4ed164.20260903"
+  sha256 "c4c4cfc9b93fcb11cbd52daa6f11fc0c21dea93a9f819be85413ede212a02ff8"
   license "MIT"
   version_scheme 1
 
@@ -20,7 +20,7 @@ class AfmStaging < Formula
     libexec.install "MacLocalAPI_AFMEvaluationHost.bundle"
     libexec.install "AFMKit_AFMKitMLX.bundle"
     libexec.install "AFMKit_AFMKitDwarfStar.bundle"
-    (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v#{version}"
+    (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v0.9.18.1"
 
     (share/"afm/webui").install "Resources/webui/index.html.gz"
     doc.install "README.md", "QUALIFICATION.md"
@@ -50,7 +50,7 @@ class AfmStaging < Formula
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/afm --version")
+    assert_match "v0.9.18.1", shell_output("#{bin}/afm --version")
     assert_match "mlx", shell_output("#{bin}/afm --help")
   end
 end
