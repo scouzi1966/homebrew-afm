@@ -1,9 +1,9 @@
 class AfmStaging < Formula
   desc "Qualified AFM staging build for Apple Silicon"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/staging-hotfix-20260903-b4ed164-beta/afm-staging-arm64.tar.gz"
-  version "0.9.18.1-staging.b4ed164.20260903"
-  sha256 "c4c4cfc9b93fcb11cbd52daa6f11fc0c21dea93a9f819be85413ede212a02ff8"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260905-4f6d449/afm-staging-arm64.tar.gz"
+  version "0.9.18-next.20260905.4f6d449"
+  sha256 "15f05dd987d32ddddc9fb18edc025f1a377579d34ab97cfe6653344dbc8823a3"
   license "MIT"
   version_scheme 1
 
@@ -20,7 +20,7 @@ class AfmStaging < Formula
     libexec.install "MacLocalAPI_AFMEvaluationHost.bundle"
     libexec.install "AFMKit_AFMKitMLX.bundle"
     libexec.install "AFMKit_AFMKitDwarfStar.bundle"
-    (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v0.9.18.1"
+    (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v0.9.18-next.20260905.4f6d449"
 
     (share/"afm/webui").install "Resources/webui/index.html.gz"
     doc.install "README.md", "QUALIFICATION.md"
@@ -34,7 +34,8 @@ class AfmStaging < Formula
 
   def caveats
     <<~EOS
-      This is a qualified staging candidate, not a stable or nightly release.
+      This is a build-qualified staging candidate, not a stable release.
+      Full model qualification is in progress; see QUALIFICATION.md.
       It conflicts with afm and afm-next because each provides `afm`.
 
       Switch from another AFM formula:
@@ -50,7 +51,7 @@ class AfmStaging < Formula
   end
 
   test do
-    assert_match "v0.9.18.1", shell_output("#{bin}/afm --version")
+    assert_match "v0.9.18-next.20260905.4f6d449", shell_output("#{bin}/afm --version")
     assert_match "mlx", shell_output("#{bin}/afm --help")
   end
 end
