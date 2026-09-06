@@ -41,8 +41,8 @@ class AfmStaging < Formula
       Run an MLX model:
         afm mlx -m mlx-community/Qwen3.6-35B-A3B-4bit -w
 
-      Review the bundled qualification report:
-        #{doc}/QUALIFICATION.md
+      Release and retained qualification evidence:
+        https://github.com/scouzi1966/maclocal-api/releases/tag/nightly-20260906-59cdad6
     EOS
   end
 
