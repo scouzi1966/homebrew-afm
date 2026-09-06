@@ -1,9 +1,9 @@
 class AfmNext < Formula
   desc "OpenAI-compatible local LLM API development build"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260822-e105e73/afm-next-arm64.tar.gz"
-  version "0.9.18-next.20260822.e105e73"
-  sha256 "b9581e00ca7ddbdff8e19898530d486b644844fc5d71ca91c8b140d5dabc5372"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260906-59cdad6/afm-next-arm64.tar.gz"
+  version "0.9.18-next.20260906.59cdad6"
+  sha256 "c7ab2fc35a598b96be6433c82a914b4c10ff1c17c8b439991e94ae6aad7e4ac2"
   license "MIT"
   version_scheme 1
 
@@ -19,8 +19,8 @@ class AfmNext < Formula
     libexec.install "MacLocalAPI_AFMKitDwarfStar.bundle"
     (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v#{version}"
 
-    if File.exist?("Resources/webui/index.html.gz")
-      (share/"afm/webui").install "Resources/webui/index.html.gz"
+    if File.exist?("Resources/webui/index.html")
+      (share/"afm/webui").install Dir["Resources/webui/*"]
     end
     doc.install "README.md"
   end
