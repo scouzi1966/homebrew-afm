@@ -1,9 +1,9 @@
 class Afm < Formula
   desc "Apple Foundation Models + MLX local models — OpenAI-compatible API, WebUI, all Swift"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.18.1/afm-v0.9.18.1-arm64.tar.gz"
-  version "0.9.18.1"
-  sha256 "cddf287879a7236d7f8c376f0f71e41e860e242973db6e37e69991cf570f8eee"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/v0.9.19/afm-v0.9.19-arm64.tar.gz"
+  version "0.9.19"
+  sha256 "822c2b8d7e01f983c296c51e6661f6887b66071383455deda74beed7b8a73a2c"
   license "MIT"
 
   depends_on arch: :arm64
@@ -18,8 +18,8 @@ class Afm < Formula
     libexec.install "AFMKit_AFMKitDwarfStar.bundle"
     (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v#{version}"
 
-    if File.exist?("Resources/webui/index.html.gz")
-      (share/"afm/webui").install "Resources/webui/index.html.gz"
+    if File.exist?("Resources/webui/index.html")
+      (share/"afm/webui").install Dir["Resources/webui/*"]
     end
     doc.install "README.md"
   end
@@ -37,7 +37,7 @@ class Afm < Formula
         afm -w -g                               # WebUI + API gateway (discovers Ollama, LM Studio, etc.)
         afm -s "Hello, AI!"                     # Single prompt mode
 
-      MLX Local Models (v0.9.18.1+):
+      MLX Local Models (v0.9.19+):
         afm mlx -m mlx-community/Qwen2.5-0.5B-Instruct-4bit -s "Hello"
         afm mlx -m mlx-community/gemma-3-4b-it-8bit -w
         afm mlx -w                              # Interactive model picker
@@ -49,9 +49,9 @@ class Afm < Formula
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/afm --version")
+    assert_equal "v#{version}", shell_output("#{bin}/afm --version").strip
     assert_match "mlx", shell_output("#{bin}/afm --help")
     assert_match "comprehensive", shell_output("#{bin}/afm mlx --eval-list")
-    assert_path_exists share/"afm/webui/index.html.gz"
+    assert_path_exists share/"afm/webui/index.html"
   end
 end
