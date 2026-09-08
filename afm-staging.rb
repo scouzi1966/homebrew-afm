@@ -1,9 +1,9 @@
 class AfmStaging < Formula
   desc "Qualified AFM staging build for Apple Silicon"
   homepage "https://github.com/scouzi1966/maclocal-api"
-  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260906-59cdad6/afm-next-arm64.tar.gz"
-  version "0.9.18-next.20260906.59cdad6"
-  sha256 "c7ab2fc35a598b96be6433c82a914b4c10ff1c17c8b439991e94ae6aad7e4ac2"
+  url "https://github.com/scouzi1966/maclocal-api/releases/download/nightly-20260908-ef8f97c/afm-next-arm64.tar.gz"
+  version "0.9.18-next.20260908.ef8f97c"
+  sha256 "9675724b00d8c1e05bbaab519155bfdda4b156c2c49e0588316b239217e1ada0"
   license "MIT"
   version_scheme 1
 
@@ -19,7 +19,7 @@ class AfmStaging < Formula
     libexec.install "MacLocalAPI_AFMEvaluationHost.bundle"
     libexec.install "AFMKit_AFMKitMLX.bundle"
     libexec.install "AFMKit_AFMKitDwarfStar.bundle"
-    (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v0.9.18-next.20260906.59cdad6"
+    (bin/"afm").write_env_script libexec/"afm", AFM_BUILD_VERSION: "v0.9.18-next.20260908.ef8f97c"
 
     if File.exist?("Resources/webui/index.html")
       (share/"afm/webui").install Dir["Resources/webui/*"]
@@ -42,12 +42,12 @@ class AfmStaging < Formula
         afm mlx -m mlx-community/Qwen3.6-35B-A3B-4bit -w
 
       Release and retained qualification evidence:
-        https://github.com/scouzi1966/maclocal-api/releases/tag/nightly-20260906-59cdad6
+        https://github.com/scouzi1966/maclocal-api/releases/tag/nightly-20260908-ef8f97c
     EOS
   end
 
   test do
-    assert_match "v0.9.18-next.20260906.59cdad6", shell_output("#{bin}/afm --version")
+    assert_match "v0.9.18-next.20260908.ef8f97c", shell_output("#{bin}/afm --version")
     assert_match "mlx", shell_output("#{bin}/afm --help")
     assert_path_exists share/"afm/webui/index.html"
   end
