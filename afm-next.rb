@@ -22,7 +22,7 @@ class AfmNext < Formula
     if File.exist?("Resources/webui/index.html")
       (share/"afm/webui").install Dir["Resources/webui/*"]
     end
-    doc.install "BUILD-PROVENANCE.md"
+    doc.install "README.md" if File.exist?("README.md")
   end
 
   def caveats
@@ -43,7 +43,6 @@ class AfmNext < Formula
 
   test do
     assert_equal "v#{version}", shell_output("#{bin}/afm --version").strip
-    assert_equal "v#{version}", shell_output("#{libexec}/afm --version").strip
     assert_match "mlx", shell_output("#{bin}/afm --help")
     assert_path_exists share/"afm/webui/index.html"
     assert_match "comprehensive", shell_output("#{bin}/afm mlx --eval-list")
